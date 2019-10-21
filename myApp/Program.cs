@@ -197,6 +197,29 @@ namespace myApp
             {
                 Console.WriteLine($"排序后：{names.IndexOf(name)} - {name}");
             }
+            
+            // 其他类型的列表
+            var fibonacci = new List<int>{1, 1}; // 创建一个整数列表，并将头两个整数设置为值1。这些是裴波那契数列的头两个值。斐波那契数列中的每个数字都是前两个数字之后。
+            var previous = fibonacci[^1];
+            var previous2 = fibonacci[^2];
+            fibonacci.Add(previous + previous2);
+            foreach (var item in fibonacci)
+            {
+                Console.WriteLine(item);
+            }
+            // 利用循环计算裴波那契数列
+            var fibonacci1 = new List<int>{1, 1};
+            while (fibonacci1.Count < 20)
+            {
+                var pre = fibonacci1[^1];
+                var pre1 = fibonacci1[^2];
+                fibonacci1.Add(pre + pre1);
+            }
+
+            foreach (var item in fibonacci1)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
