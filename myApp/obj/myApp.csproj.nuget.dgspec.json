@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\robin.zhu\\Documents\\GitHub\\.NET-gettingStart\\myApp\\myApp.csproj": {}
+    "/Users/zhudapeng/Desktop/NET-gettingStart/myApp/myApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\robin.zhu\\Documents\\GitHub\\.NET-gettingStart\\myApp\\myApp.csproj": {
+    "/Users/zhudapeng/Desktop/NET-gettingStart/myApp/myApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\robin.zhu\\Documents\\GitHub\\.NET-gettingStart\\myApp\\myApp.csproj",
+        "projectUniqueName": "/Users/zhudapeng/Desktop/NET-gettingStart/myApp/myApp.csproj",
         "projectName": "myApp",
-        "projectPath": "C:\\Users\\robin.zhu\\Documents\\GitHub\\.NET-gettingStart\\myApp\\myApp.csproj",
-        "packagesPath": "C:\\Users\\robin.zhu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\robin.zhu\\Documents\\GitHub\\.NET-gettingStart\\myApp\\obj\\",
+        "projectPath": "/Users/zhudapeng/Desktop/NET-gettingStart/myApp/myApp.csproj",
+        "packagesPath": "/Users/zhudapeng/.nuget/packages/",
+        "outputPath": "/Users/zhudapeng/Desktop/NET-gettingStart/myApp/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\robin.zhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/zhudapeng/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

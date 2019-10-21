@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using static System.Console;
 
 namespace myApp
 {
@@ -16,6 +18,7 @@ namespace myApp
             OtherTest();
             CycleTest();
             ArrayTest();
+            More();
         }
 
         private static void WorkingWithIntegers() // 封装成方法
@@ -220,6 +223,38 @@ namespace myApp
             {
                 Console.WriteLine(item);
             }
+        }
+
+        private static void More()
+        {
+            var person = new Person("Zhu", "Da", "Peng");
+            Console.WriteLine($"The name, in all caps: {person.AllCaps()}");
+            Console.WriteLine($"The name: {person}");
+
+            const string phrase = "the quick brown fox jumps over the lazy dog";
+            var wordLength = from word in phrase.Split(' ') select word.Length;
+            var enumerable = wordLength as int[] ?? wordLength.ToArray();
+            WriteLine($"The average word length is: {enumerable.Average():F2}");
+            WriteLine($"The average word length is: {enumerable.Average()}");
+        }
+
+        private class Person
+        {
+            private string FirstName { get; set; }
+            private string LastName { get; set; }
+
+            private string MiddleName { get; } = ""; // 初始化自动属性的支持字段
+
+            public Person(string first, string middle, string last)
+            {
+                FirstName = first;
+                MiddleName = middle;
+                LastName = last;
+            }
+
+            public override string ToString() => FirstName + " " + LastName; // expression-bodied成员为轻量级方法提供轻量级语法
+
+            public string AllCaps() => ToString().ToUpper();
         }
     }
 }
