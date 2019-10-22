@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Resources;
+using System.Security.Cryptography.X509Certificates;
 using static System.Console;
 
 namespace myApp
@@ -356,6 +358,11 @@ namespace myApp
         {
             // 类型和变量
             
+            // 枚举
+            const int x = (int) Day.Sun;
+            const int y = (int) Day.Fri;
+            WriteLine("Sun = {0}", x);
+            WriteLine("Fri = {0}", y);
         }
 
         private class Person
