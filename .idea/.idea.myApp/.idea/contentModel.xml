@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\robin.zhu\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\robin.zhu\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_myApp.1100225510.00" t="ExcludeRecursive" />
+    <e p="C:\Users\robin.zhu\Documents\GitHub\.NET-gettingStart" t="IncludeFlat">
       <e p="myApp" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ILight.cs" t="Include" />
         <e p="myApp.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -12,12 +15,12 @@
             </e>
           </e>
         </e>
+        <e p="OverheadLight.cs" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="Stack.cs" t="Include" />
       </e>
       <e p="myApp.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_myApp.-2043871058.00" t="ExcludeRecursive" />
   </component>
 </project>

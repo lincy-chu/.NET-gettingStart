@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using static System.Console;
 
@@ -19,6 +20,11 @@ namespace myApp
             CycleTest();
             ArrayTest();
             More();
+            TestMore();
+            StringMore();
+            InterfaceTest();
+            AboutCSharp();
+            TypeAndVar();
         }
 
         private static void WorkingWithIntegers() // 封装成方法
@@ -238,6 +244,120 @@ namespace myApp
             WriteLine($"The average word length is: {enumerable.Average()}");
         }
 
+        private static void TestMore()
+        {
+            // 异常筛选器
+            // 使用异常筛选器可以捕获基于某些条件的异常。典型用法是创建筛选器方法，该方法记录异常，但从不处理异常
+            try
+            {
+                const string s = null;
+                // WriteLine(s.Length);
+                WriteLine(s);
+            }
+            catch (Exception e)
+            {
+                WriteLine(e);
+                throw;
+            }
+            
+            // 使用nameof
+            // nameof运算符返回任何变量、类型或类型成员的名称
+            WriteLine(nameof(System.String));
+            const int j = 5;
+            WriteLine(nameof(j));
+            List<string> names = new List<string>();
+            WriteLine(nameof(names));
+            
+            // 新的对象初始化语法
+            // 对象初始化设定项语法现在支持初始化索引器以及属性和字段。此添加使初始化字典和其他类型更容器。
+            // 此语法在索引器中设置值，可用于在索引器上具有访问的set访问器的任何类型
+            var messages = new Dictionary<int, string>
+            {
+                [404] = "Page not Found",
+                [302] = "Page moved, but left a forwarding address.",
+                [500] = "The web server can't come out to play today."
+            };
+            WriteLine(messages[302]);
+        }
+
+        private static void StringMore()
+        {
+            // 内插字符串
+            const string name = "robin";
+            WriteLine($"Hello, {name}. It's a pleasure to meet you!");
+            
+            // 包含不同的数据类型
+            var (s, price, perPackage) = (name: "eggplant", price: 1.99m, perPackage: 3);
+            var date = DateTime.Now;
+            // 通过字符串内插，可以指定用于控制特定类型格式的格式字符串。可通过在内插表达式后面接冒号(:)和格式字符串来指定格式字符串。'd'是标准日期和时间格式字符串，表示短日期格式。'C2'是标注数值格式字符串，用数字表示货币值（精确到小数点后两位）
+            // date 默认显示年月时间
+            // date:d 只显示年月
+            // date:t 只显示时间
+            // date:y 只显示年月
+            // date:yyyy 只显示4位年份
+            WriteLine($"On {date}, the price of {s} was {price:C2} per {perPackage} items.");
+            WriteLine($"On {date:d}, the price of {s} was {price:C2} per {perPackage} items.");
+            WriteLine($"On {date:t}, the price of {s} was {price:C2} per {perPackage} items.");
+            WriteLine($"On {date:y}, the price of {s} was {price:C2} per {perPackage} items.");
+            WriteLine($"On {date:yyyy}, the price of {s} was {price:C2} per {perPackage} items.");
+            // :C3保留三位小数
+            WriteLine($"On {date}, the price of {s} was {price:C3} per {perPackage} items.");
+            
+            // 字符串内插的高级方案
+            // 字符串插值功能构建在复合格式设置功能的基础之上，提供更具有可读性、更方便的语法，用于将设置了格式的表达式结果包括到结果字符串。可嵌入任何会在内插字符串中返回值的有效C#表达式
+            const double a = 3;
+            const double b = 4;
+            double CalculateHypotenuse(double leg1, double leg2) => Math.Sqrt(leg1 * leg1 + leg2 * leg2);
+            WriteLine($"Area of the right triangle with legs of {a} and {b} is {0.5 * a * b}");
+            WriteLine($"Length of hypotenuse of the right triangle with legs of {a} and {b} is {CalculateHypotenuse(a, b)}");
+            var theDate = new DateTime(2008, 8, 8, 20, 0, 0, 0);
+            WriteLine($"On {theDate:yyyy/MM/dd dddd}, China was holding the Olympic opening ceremony!");
+
+            var xs = new int[] { 1, 2, 7, 9 };
+            var yx = new int[] { 7, 9, 12 };
+            WriteLine($"Find the intersection of the {{{string.Join(", ", xs)}}} and {{{string.Join(", ", yx)}}} sets.");
+            
+            // 在内插表达式中使用三元条件运算符?:
+            var random = new Random();
+            for (var i = 0; i < 7; i++)
+            {
+                WriteLine($"Coin flip: {(random.NextDouble() < 0.5 ? "heads": "tails")}");
+            }
+        }
+
+        private static void InterfaceTest()
+        {
+            // 使用默认接口方法更新接口
+            // 从.NET Core3.0上的C#8.0开始，可以在声明接口成员时定义实现，常用的方案是安全地将成员添加到已经由无数客户端发布并使用的接口。添加了默认接口实现用于升级接口。默认接口实现使开发人员能够升级接口，同时仍允许任何实现器替代该实现。库的用户可以接受默认实现作为非中断性变更。如果业务规则不同，则可以进行替代
+            var overHeadLight = new OverheadLight(false);
+            WriteLine(overHeadLight.ToString());
+            overHeadLight.SwitchOn();
+            WriteLine(overHeadLight.ToString());
+            overHeadLight.SwitchOff();
+            WriteLine(overHeadLight.IsOn());
+            WriteLine(overHeadLight.ToString());
+        }
+
+        private static void AboutCSharp()
+        {
+            /**
+             * C#中的关键组织结构概念包括程序、命名空间、类型、成员和程序集。C#程序由一个或多个源文件组成。程序声明类型，而类型则包含成员，并被整理到命名空间中。类型实例包括类和接口。成员示例包括字段、方法、属性和事件。编译完的C#程序实际上会打包到程序集中。程序集的文件扩展名通常是.exe或.dll，具体取决于实现的是应用程序还是库。
+             */
+            var s = new Stack();
+            s.Push(1);
+            s.Push(10);
+            s.Push(100);
+            WriteLine(s.Pop());
+            WriteLine(s.Pop());
+            WriteLine(s.Pop());
+        }
+
+        private static void TypeAndVar()
+        {
+            // 类型和变量
+            
+        }
+
         private class Person
         {
             private string FirstName { get; set; }
@@ -247,9 +367,9 @@ namespace myApp
 
             public Person(string first, string middle, string last)
             {
-                FirstName = first;
-                MiddleName = middle;
-                LastName = last;
+                this.FirstName = first;
+                this.MiddleName = middle;
+                this.LastName = last;
             }
 
             public override string ToString() => FirstName + " " + LastName; // expression-bodied成员为轻量级方法提供轻量级语法
